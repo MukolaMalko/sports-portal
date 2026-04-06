@@ -1,20 +1,31 @@
-/* Sports Theme — Main JS */
-document.addEventListener('DOMContentLoaded', function () {
+const apiUrl = '/wp-json/wp/v2/event';
 
-  // ── Mobile menu toggle ──────────────────────────────────────
-  const toggle = document.getElementById('menuToggle');
-  const nav    = document.getElementById('primaryNav');
-  if (toggle && nav) {
-    toggle.addEventListener('click', function () {
-      const open = nav.classList.toggle('open');
-      toggle.setAttribute('aria-expanded', open);
-    });
-  }
-
-  // ── Active nav link ─────────────────────────────────────────
-  const links = document.querySelectorAll('.nav-primary a');
-  links.forEach(link => {
-    if (link.href === window.location.href) link.classList.add('active');
+function loadEvents() {
+  fetch(apiUrl).then(function(response) {
+    return response.json();
+  }).then(function(data) {
+    const items = data;
+    for (let i = 0; i < items.length; i++) {
+      const item = items[i];
+      document.getElementById('events-list').innerHTML += '<div>' + item.title.rendered + '</div>';
+    }
   });
+}
 
-});
+function loadNews() {
+  fetch('/wp-json/wp/v2/news').then(function(response) {
+    return response.json();
+  }).then(function(result) {
+    document.getElementById('news-list').innerHTML = result.length + ' news loaded';
+  });
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', function() {
+    loadEvents();
+    loadNews();
+  });
+} else {
+  loadEvents();
+  loadNews();
+}

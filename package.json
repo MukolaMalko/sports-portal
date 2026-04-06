@@ -1,0 +1,26 @@
+{
+  "name": "sports-theme",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint js/app.js",
+    "lint:fix": "eslint js/app.js --fix"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MukolaMalko/sports-portal.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MukolaMalko/sports-portal/issues"
+  },
+  "homepage": "https://github.com/MukolaMalko/sports-portal#readme",
+  "description": "",
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "eslint": "^10.2.0"
+  }
+}
