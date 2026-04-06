@@ -28,4 +28,4 @@ if (document.readyState === 'loading') {
 } else {
   loadEvents();
   loadNews();
-}
+} 
