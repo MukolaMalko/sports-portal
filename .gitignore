@@ -3,4 +3,4 @@ wp-config.php
 *.log
 .DS_Store
 Thumbs.db
-.vscode/g
+.vscode/gnode_modules/
