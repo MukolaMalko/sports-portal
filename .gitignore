@@ -4,3 +4,5 @@ wp-config.php
 .DS_Store
 Thumbs.db
 .vscode/gnode_modules/
+node_modules/
+coverage/
